@@ -1,0 +1,34 @@
+a: b
+	echo A
+
+b: c
+	echo B
+
+c: a d e
+	echo C
+
+d: e
+	echo D
+
+e:
+	echo E
+
+f: d
+	echo F
+
+g: h i
+	echo G
+
+h:
+	echo H
+
+i:
+	echo I
+
+examples/file1: examples/oldfile examples/oldfile2
+	echo I NEED OLD FILES
+	echo "Bye bitch" >examples/file1
+
+examples/oldfile2:
+	echo Running oldfile 2
+	echo "BYe" >examples/oldfile2
